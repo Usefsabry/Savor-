@@ -409,17 +409,7 @@ form.addEventListener('submit', function(e) {
         }
         return false; // Stop form submission
     } else {
-        showAlert('Account created successfully! Redirecting...', 'success');
-        console.log('Form submitted successfully!');
-        console.log('Name:', fullname);
-        console.log('Email:', email);
-        console.log('Phone:', phone);
-        
-        // Simulate redirect after 2 seconds
-        setTimeout(() => {
-            alert('Redirecting to login...');
-            // window.location.href = 'login.html';
-        }, 2000);
+        window.location.href = 'restaurant_login.html';
     }
     
     return false; // Prevent default form submission

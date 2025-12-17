@@ -236,16 +236,7 @@ form.addEventListener('submit', function(e) {
         }
         return false; // Stop form submission
     } else {
-        showAlert('Login successful! Redirecting...', 'success');
-        console.log('Form submitted successfully!');
-        console.log('Email:', email);
-        
-        // Simulate redirect after 2 seconds
-        setTimeout(() => {
-            // Here you would normally send data to server or redirect
-            // window.location.href = 'dashboard.html';
-            alert('Redirecting to dashboard...');
-        }, 2000);
+        window.location.href = 'index.html';
     }
     
     return false; // Prevent default form submission

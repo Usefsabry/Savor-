@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gourmet Haven - Premium Dining Experience</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Gourmet Haven Logo">
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <!-- Centered Navigation Links -->
+            <ul class="nav-menu center-nav">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About Us</a></li>
+                <li><a href="menu.html" class="nav-link">Menu</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+            </ul>
+
+            <!-- Right Aligned Auth Buttons -->
+            <ul class="nav-auth">
+                <li><a href="restaurant_login.html" class="nav-link btn-login">Login</a></li>
+                <li><a href="restaurant_signup.html" class="nav-link btn-signup">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg-overlay"></div>
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+            <h1 class="hero-title">Experience the <span class="text-gradient">Taste of Luxury</span></h1>
+            <p class="hero-subtitle">Where culinary art offers a sensory experience like no other.</p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn btn-primary smooth-scroll">About Us</a>
+                <a href="menu.html" class="btn btn-secondary">View Menu</a>
+            </div>
+        </div>
+        <!-- Moving Background Elements (Animated via CSS) -->
+        <div class="hero-floating-images">
+            <!-- We will use CSS background on the hero section for the main effect, 
+                 or floating elements here if we want parallax particles -->
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about" id="about">
+        <div class="container about-container">
+            <div class="about-content-wrapper" data-aos="fade-right">
+                <h2 class="section-title about-savaro-title">About Savoré</h2>
+                <span class="divider-line"></span>
+                <p>Welcome to Gourmet Haven, where tradition meets innovation. Our journey began with a simple passion:
+                    to create an unforgettable dining experience. Every dish tells a story of heritage, flavor, and
+                    dedication.</p>
+                <p>We source the finest ingredients from local farmers and global artisans to bring you flavors that
+                    excite the palate and warm the soul.</p>
+                <div class="about-signature">
+                    <img src="images/logo.png" alt="Signature" style="height: 40px; opacity: 0.7;">
+                </div>
+            </div>
+            <div class="about-img-gallery" data-aos="zoom-in">
+                <div class="img-box main-img">
+                    <img src="images/about.jpg" alt="Restaurant Interior">
+                </div>
+                <div class="img-box sub-img">
+                    <img src="images/steak.jpg" alt="Signature Dish">
+                </div>
+                <div class="experience-badge-floating">
+                    <span class="count">15</span>
+                    <span class="label">Years of<br>Magic</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Dishes (Gallery) -->
+    <section class="featured" id="gallery">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h4 class="section-subtitle">Delicacies</h4>
+                <h2 class="section-title">Featured <span class="highlight">Dishes</span></h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="images/burger.jpg" alt="Gourmet Burger">
+                    <div class="overlay">
+                        <h3>Classic Burger</h3>
+                        <p>Juicy beef patty with fresh veggies</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="images/pizza.jpg" alt="Italian Pizza">
+                    <div class="overlay">
+                        <h3>Woodfire Pizza</h3>
+                        <p>Authentic Italian taste</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="images/pasta.jpg" alt="Creamy Pasta">
+                    <div class="overlay">
+                        <h3>Creamy Pasta</h3>
+                        <p>Rich alfredo sauce with herbs</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="images/steak.jpg" alt="Premium Steak">
+                    <div class="overlay">
+                        <h3>Grilled Steak</h3>
+                        <p>Cooked to perfection</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <a href="menu.html" class="btn btn-primary">See Full Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us (Extra Section) -->
+    <section class="why-us" id="why-us">
+        <div class="container">
+            <div class="why-us-grid">
+                <div class="why-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <h3>Fast Delivery</h3>
+                    <p>Hot and fresh food delivered to your doorstep in record time.</p>
+                </div>
+                <div class="why-card featured-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-medal"></i>
+                    </div>
+                    <h3>Premium Quality</h3>
+                    <p>We never compromise on quality. Only the best for our guests.</p>
+                </div>
+                <div class="why-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-wine-glass"></i>
+                    </div>
+                    <h3>Exquisite Drinks</h3>
+                    <p>A curated selection of wines and beverages to complement your meal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-custom">
+        <div class="container">
+            <div class="footer-top-grid">
+                <!-- Col 1: About Us -->
+                <div class="footer-widget">
+                    <h3 class="widget-title">About Savoré</h3>
+                    <p class="footer-text">
+                        Experience the art of dining at Savoré. We blend tradition with modern culinary techniques to
+                        bring you flavors that linger in your memory.
+                    </p>
+                    <p class="footer-text mt-2">
+                        Passionate about food, dedicated to service.
+                    </p>
+                </div>
+
+                <!-- Col 2: Why we are special -->
+                <div class="footer-widget">
+                    <h3 class="widget-title">Why Savoré?</h3>
+                    <ul class="footer-list arrow-list">
+                        <li><a href="#">Farm-to-table Ingredients</a></li>
+                        <li><a href="#">Award-Winning Chefs</a></li>
+                        <li><a href="#">Sustainable Practices</a></li>
+                        <li><a href="#">Exclusive Wine Selection</a></li>
+                        <li><a href="#">Cozy & Elegant Ambience</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Opening Hours -->
+                <div class="footer-widget">
+                    <h3 class="widget-title">Opening Hours</h3>
+                    <ul class="footer-list arrow-list">
+                        <li><span>Monday 10AM - 9PM</span></li>
+                        <li><span>Tuesday 10AM - 9PM</span></li>
+                        <li><span>Wednesday 10AM - 9PM</span></li>
+                        <li><span>Thursday 10AM - 10PM</span></li>
+                        <li><span>Friday 10AM - 10PM</span></li>
+                        <li><span>Weekends 10AM - 11PM</span></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact Details -->
+                <div class="footer-widget">
+                    <h3 class="widget-title">Contact Details</h3>
+                    <ul class="footer-list icon-list">
+                        <li><i class="fa-solid fa-location-dot"></i> <span>Manchester Road 123-78B, Silictown 7854MD,
+                                Great Country</span></li>
+                        <li><i class="fa-solid fa-phone"></i> <span>+46 123 456 789</span></li>
+                        <li><i class="fa-solid fa-envelope"></i> <span>hello@Savoré.com</span></li>
+                        <li><i class="fa-solid fa-globe"></i> <span>http://www.Savoré.com</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer-bottom-bar">
+            <div class="container footer-bottom-content">
+                <div class="footer-brand-centered">
+                    <img src="images/logo.png" alt="Bakery Logo">
+                    <h2>Gourmet Haven</h2>
+                </div>
+                <p class="copyright-text">Copyright &copy; 2025. All rights reserved.</p>
+                <div class="social-icons-round">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

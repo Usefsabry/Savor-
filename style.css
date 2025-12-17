@@ -1,0 +1,904 @@
+/* Global Styles */
+:root {
+    --primary-color: #ff6b00;
+    --primary-dark: #cc5500;
+    --bg-color: #0a0a0a;
+    --bg-secondary: #161616;
+    --text-color: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --white: #ffffff;
+    --black: #000000;
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+    --font-head: 'Playfair Display', serif;
+    --font-body: 'Outfit', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-head);
+    color: var(--white);
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.highlight {
+    color: var(--primary-color);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+    margin-left: 15px;
+}
+
+.btn-secondary:hover {
+    background-color: var(--white);
+    color: var(--black);
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    margin-top: 20px;
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 15px 0;
+    background: transparent;
+    transition: var(--transition);
+}
+
+.navbar.scrolled {
+    background: rgba(10, 10, 10, 0.95);
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 160px;
+    /* Even Bigger as requested */
+    transition: var(--transition);
+}
+
+.navbar.scrolled .logo img {
+    height: 100px;
+}
+
+.nav-menu.center-nav {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin: 0 auto;
+    /* Center the links */
+    justify-content: center;
+    flex-grow: 1;
+}
+
+/* Nav Link Underline Effect */
+.nav-link {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--white);
+    position: relative;
+    padding: 5px 0;
+}
+
+.nav-link:not(.btn-login):not(.btn-signup)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s;
+}
+
+.nav-link:not(.btn-login):not(.btn-signup):hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Auth Buttons Group */
+.nav-auth {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.btn-login,
+.btn-signup {
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-size: 1rem;
+    position: relative;
+    text-decoration: none !important;
+}
+
+/* Ensure no underline on these */
+.btn-login::after,
+.btn-signup::after {
+    display: none;
+}
+
+.btn-login {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-login:hover {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-signup {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-signup:hover {
+    background: var(--primary-dark);
+}
+
+/* Mobile Menu Toggle */
+.mobile-auth-container {
+    display: none;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.menu-toggle .bar {
+    width: 30px;
+    height: 3px;
+    background-color: var(--white);
+    margin: 6px 0;
+    transition: 0.4s;
+    border-radius: 2px;
+}
+
+/* Burger Animation */
+.menu-toggle.active .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-7px, 6px);
+    background-color: var(--primary-color);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-7px, -6px);
+    background-color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background: #000;
+}
+
+/* Background Animation (Ken Burns) */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Default image, overridden by JS if needed */
+    background-image: var(--hero-bg, url('images/background2.jpg'));
+    background-size: cover;
+    background-position: center;
+    opacity: 0.6;
+    animation: zoomEffect 20s infinite alternate;
+    z-index: 1;
+    transition: background-image 1s ease-in-out;
+}
+
+/* Or using multiple images via animation if user wanted "moving images" plual */
+@keyframes zoomEffect {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.15);
+    }
+}
+
+.hero-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8));
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    padding: 0 20px;
+}
+
+.hero-title {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.text-gradient {
+    background: linear-gradient(45deg, var(--primary-color), #ff9e40);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* About Section Redesign */
+.about {
+    padding: 120px 0;
+    background-color: #1a1a1a;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.about-content-wrapper {
+    position: relative;
+    z-index: 2;
+}
+
+/* About Savaro Title Styling */
+.about-savaro-title {
+    font-size: 4rem;
+    /* Big */
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-color);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    font-style: italic;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.divider-line {
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 20px 0 30px;
+}
+
+.about-content-wrapper p {
+    color: #b0b0b0;
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+}
+
+.about-signature {
+    margin-top: 30px;
+    opacity: 0.8;
+}
+
+/* About Image Grid */
+.about-img-gallery {
+    position: relative;
+    height: 500px;
+}
+
+.img-box {
+    position: absolute;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    border: 5px solid rgba(255, 255, 255, 0.05);
+}
+
+.main-img {
+    width: 80%;
+    height: auto;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.sub-img {
+    width: 55%;
+    bottom: 20px;
+    right: 0;
+    z-index: 2;
+    border-color: var(--bg-secondary);
+}
+
+.experience-badge-floating {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 25px;
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    box-shadow: 0 0 0 10px rgba(255, 107, 0, 0.2);
+    text-align: center;
+}
+
+.experience-badge-floating .count {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+    font-family: var(--font-head);
+}
+
+.experience-badge-floating .label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Featured Dishes */
+.featured {
+    padding: 100px 0;
+    background-color: var(--bg-color);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    height: 300px;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    transform: translateY(100%);
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover .overlay {
+    transform: translateY(0);
+}
+
+.overlay h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+/* Why Choose Us */
+.why-us {
+    padding: 100px 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('images/background3.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.why-us-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.why-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.why-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 107, 0, 0.1);
+    border-color: var(--primary-color);
+}
+
+.icon-box {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.why-card h3 {
+    margin-bottom: 15px;
+}
+
+.why-card p {
+    color: var(--text-muted);
+}
+
+/* Footer Custom Redesign */
+.footer-custom {
+    background-color: #050505;
+    color: #b0b0b0;
+    padding-top: 80px;
+    font-size: 0.95rem;
+}
+
+.footer-top-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding-bottom: 60px;
+}
+
+.widget-title {
+    color: #fff;
+    font-family: var(--font-head);
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.footer-custom {
+    background-color: #050505;
+    color: #b0b0b0;
+    padding-top: 80px;
+    font-size: 0.95rem;
+    font-style: italic;
+    /* Italic text as requested */
+}
+
+.footer-text {
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.footer-list {
+    padding: 0;
+}
+
+.footer-list li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    transition: var(--transition);
+}
+
+.arrow-list li::before {
+    content: '>';
+    color: #7a7a7a;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+.arrow-list li:hover {
+    color: var(--white);
+    padding-left: 5px;
+}
+
+.arrow-list li:hover::before {
+    color: var(--white);
+}
+
+.icon-list li i {
+    color: #b0b0b0;
+    margin-top: 5px;
+    width: 20px;
+}
+
+/* Footer Bottom Bar */
+.footer-bottom-bar {
+    background-color: #050505;
+    /* Black seamless */
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-bottom-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-brand-centered {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-brand-centered img {
+    height: 160px;
+    /* Footer Logo Bigger */
+}
+
+.footer-brand-centered h2 {
+    font-size: 2.2rem;
+    color: var(--white);
+    font-family: var(--font-head);
+    font-style: normal;
+}
+
+.social-icons-round {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icons-round a {
+    width: 40px;
+    height: 40px;
+    background: #4a4540;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: var(--transition);
+}
+
+.social-icons-round a:hover {
+    background: var(--primary-color);
+    transform: rotate(360deg);
+}
+
+/* Responsive Design */
+/* Responsive Design */
+@media (max-width: 900px) {
+    .navbar {
+        padding: 15px 0;
+    }
+
+    .logo img {
+        height: 60px;
+    }
+
+    .navbar.scrolled .logo img {
+        height: 50px;
+    }
+
+    /* Mobile Menu Toggle button */
+    .menu-toggle {
+        display: block !important;
+        cursor: pointer;
+        z-index: 1002;
+        width: 35px;
+        height: 25px;
+        position: relative;
+    }
+
+    .menu-toggle .bar {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: #fff;
+        margin: 5px 0;
+        border-radius: 3px;
+        transition: 0.4s;
+    }
+
+    /* Off-canvas Menu Base Styles */
+    /* Off-canvas Side Menu (Glassmorphism) */
+    /* Off-canvas Side Menu (Glassmorphism) */
+    .nav-menu.center-nav,
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -350px;
+        /* Start off-screen right */
+        left: auto;
+        /* Reset left */
+        width: 300px;
+        /* Fixed width sidebar */
+        height: 100vh;
+        background: rgba(20, 20, 20, 0.8);
+        /* Slightly darker for better visibility */
+        flex-direction: column;
+        justify-content: flex-start;
+        /* Start from top */
+        align-items: center;
+        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;
+        padding-top: 120px;
+        /* Push items below the X icon */
+        margin: 0;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Active State: Slide in */
+    .nav-menu.center-nav.active {
+        right: 0;
+        left: auto;
+        display: flex;
+    }
+
+    /* Auth Buttons inside sidebar */
+    /* Auth Buttons inside sidebar */
+    .nav-auth {
+        position: fixed;
+        bottom: 80px;
+        right: -350px;
+        left: auto;
+        width: 300px;
+        height: auto;
+        opacity: 0;
+        transition: 0.5s ease;
+        z-index: 1005;
+        /* Max z-index */
+        gap: 15px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        transform: none;
+        top: auto;
+        display: flex !important;
+        pointer-events: none;
+    }
+
+    .nav-auth.active {
+        opacity: 1;
+        right: 0;
+        transform: none;
+        left: auto;
+        pointer-events: all;
+    }
+
+    /* Style buttons for visibility on dark glass */
+    .nav-auth .btn-login,
+    .nav-auth .btn-signup {
+        width: 80%;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.5);
+        /* Semi-transparent background */
+        backdrop-filter: blur(5px);
+        border: 1px solid var(--primary-color);
+        color: var(--white);
+    }
+
+    .nav-auth .btn-signup {
+        background: var(--primary-color);
+        color: var(--white);
+        border: none;
+    }
+
+    /* Link Styles */
+    .nav-link {
+        font-size: 1.4rem;
+        margin: 20px 0;
+        display: block;
+        opacity: 0;
+        transform: translateX(20px);
+        transition: 0.4s ease;
+        text-align: center;
+        width: 100%;
+    }
+
+    /* Staggered Animation for links when active */
+    .nav-menu.active .nav-link {
+        opacity: 1;
+        transform: translateX(0);
+        transition-delay: 0.2s;
+    }
+
+    /* Reset Auth Button Styles for Mobile Context */
+    .btn-login,
+    .btn-signup {
+        font-size: 1.2rem;
+        padding: 12px 30px;
+    }
+
+    /* Layout Adjustments */
+    .about-container,
+    .footer-top-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Mobile Menu Container Styling */
+    .mobile-auth-container {
+        margin-top: auto;
+        /* Push to bottom of flex container */
+        margin-bottom: 40px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .mobile-auth-container li {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .mobile-auth-container .btn-login,
+    .mobile-auth-container .btn-signup {
+        width: 80%;
+        text-align: center;
+        display: block;
+        font-size: 1.2rem;
+        padding: 12px 0;
+    }
+
+    .mobile-auth-container .btn-login {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: var(--primary-color);
+        color: var(--white);
+    }
+
+    .mobile-auth-container .btn-signup {
+        background: var(--primary-color);
+        color: var(--white);
+        border: none;
+    }
+
+    /* Hide original nav-auth on mobile completely */
+    .nav-auth {
+        display: none !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-img-gallery {
+        height: 300px;
+    }
+
+    .experience-badge-floating {
+        width: 110px;
+        height: 110px;
+    }
+
+    .experience-badge-floating .count {
+        font-size: 2rem;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+}
