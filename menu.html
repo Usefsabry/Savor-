@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savoré - Menu</title>
+    <link rel="stylesheet" href="menu_style.css">
+</head>
+
+<body>
+    <!-- Background Slider (Reusing existing functionality) -->
+    <div class="background-slider">
+        <div class="slide active" style="background-image: url('images/background3.jpg')"></div>
+        <div class="slide" style="background-image: url('images/background2.jpg')"></div>
+        <div class="slide" style="background-image: url('images/background3.jpg')"></div>
+    </div>
+
+    <div class="menu-container">
+        <!-- Header -->
+        <header class="menu-header">
+            <h1>Our Menu</h1>
+            <p>Discover our delicious selection of culinary delights</p>
+        </header>
+
+        <!-- Search Section -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for food...">
+            <svg class="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </div>
+
+        <!-- Filter Section -->
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="breakfast">Breakfast</button>
+            <button class="filter-btn" data-filter="lunch">Lunch</button>
+            <button class="filter-btn" data-filter="dinner">Dinner</button>
+            <button class="filter-btn" data-filter="drinks">Drinks</button>
+        </div>
+
+        <!-- Menu Grid -->
+        <div class="menu-grid" id="menuGrid">
+            <!-- BREAKFAST -->
+            <div class="food-card">
+                <div class="card-image">
+                    <img src="images/Butter Croissant.png" alt="Croissant">
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Breakfast</span>
+                    <h3 class="food-title">Butter Croissant</h3>
+                    <div class="food-price"><span class="currency-symbol">$</span>4.50</div>
+                    <button class="order-btn">Order</button>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="card-image">
+                    <img src="images/Pain Perdu.png" alt="French Toast">
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Breakfast</span>
+                    <h3 class="food-title">Pain Perdu</h3>
+                    <div class="food-price"><span class="currency-symbol">$</span>11.00</div>
+                    <button class="order-btn">Order</button>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="card-image">
+                    <img src="images/quiche-lorraine.webp" alt="Quiche Lorraine">
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Breakfast</span>
+                    <h3 class="food-title">Quiche Lorraine</h3>
+                    <div class="food-price"><span class="currency-symbol">$</span>13.50</div>
+                    <button class="order-btn">Order</button>
+                </div>
+            </div>
+
+            <!-- LUNCH -->
+            <div class="food-card">
+                <div class="card-image">
+                    <img src="images/Croque Monsieur.jpg" alt="Croque Monsieur">
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Lunch</span>
+                    <h3 class="food-title">Croque Monsieur</h3>
+                    <div class="food-price"><span class="currency-symbol">$</span>14.50</div>
+                    <button class="order-btn">Order</button>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="card-image">
+                    <img src="images/Salade Niçoise.webp" alt="Niçoise Salad">
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Lunch</span>
+                    <h3 class="food-title">Salade Niçoise</h3>
+                    <div class="food-price"><span class="currency-symbol">$</span>16.00</div>
+                    <button class="order-btn">Order</button>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="card-image">
+                    <img src="images/Onion Soup.jfif" alt="French Onion Soup">
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Lunch</span>
+                    <h3 class="food-title">Onion Soup</h3>
+                    <div class="food-price"><span class="currency-symbol">$</span>12.00</div>
+                    <button class="order-btn">Order</button>
+                </div>
+            </div>
+
+            <!-- DINNER -->
+            <div class="food-card">
+                <div class="card-image">
+                    <img src="images/Coq au Vin.webp" alt="Coq au Vin">
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Dinner</span>
+                    <h3 class="food-title">Coq au Vin</h3>
+                    <div class="food-price"><span class="currency-symbol">$</span>24.00</div>
+                    <button class="order-btn">Order</button>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="card-image">
+                    <img src="images/Classic Ratatouille.webp" alt="Ratatouille">
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Dinner</span>
+                    <h3 class="food-title">Classic Ratatouille</h3>
+                    <div class="food-price"><span class="currency-symbol">$</span>19.50</div>
+                    <button class="order-btn">Order</button>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="card-image">
+                    <img src="images/Steak Frites.webp" alt="Steak Frites">
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Dinner</span>
+                    <h3 class="food-title">Steak Frites</h3>
+                    <div class="food-price"><span class="currency-symbol">$</span>28.00</div>
+                    <button class="order-btn">Order</button>
+                </div>
+            </div>
+
+            <!-- DRINKS -->
+            <div class="food-card">
+                <div class="card-image">
+                    <img src="images/Bordeaux Red.png" alt="French Wine">
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Drinks</span>
+                    <h3 class="food-title">Bordeaux Red</h3>
+                    <div class="food-price"><span class="currency-symbol">$</span>15.00</div>
+                    <button class="order-btn">Order</button>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="card-image">
+                    <img src="images/Café au Lait.webp" alt="Café au Lait">
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Drinks</span>
+                    <h3 class="food-title">Café au Lait</h3>
+                    <div class="food-price"><span class="currency-symbol">$</span>5.50</div>
+                    <button class="order-btn">Order</button>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?w=500&q=80" alt="Limonade">
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Drinks</span>
+                    <h3 class="food-title">Limonade</h3>
+                    <div class="food-price"><span class="currency-symbol">$</span>18.00</div>
+                    <button class="order-btn">Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Cart Button -->
+    <a href="order.html" class="cart-float" id="cartFloat">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        <span class="cart-count" id="cartCount">0</span>
+    </a>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">Item added to cart!</div>
+
+    <!-- Optional: Simple Script for interactivity -->
+    <script>
+        // Simple background slider rotation (copied concept from signup)
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        setInterval(() => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 5000);
+
+        // Filter Logic (Simple implementation)
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.food-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Active state
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.dataset.filter.toLowerCase();
+
+                cards.forEach(card => {
+                    const category = card.querySelector('.card-category').textContent.toLowerCase();
+                    if (filter === 'all' || category === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Search Logic
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('keyup', (e) => {
+            const term = e.target.value.toLowerCase();
+
+            cards.forEach(card => {
+                const title = card.querySelector('.food-title').textContent.toLowerCase();
+                if (title.includes(term)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Cart Logic
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('savorCart')) || [];
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            const cartFloat = document.getElementById('cartFloat');
+            const cartCount = document.getElementById('cartCount');
+
+            cartCount.textContent = count;
+
+            if (count > 0) {
+                cartFloat.classList.add('visible');
+            } else {
+                cartFloat.classList.remove('visible');
+            }
+        }
+
+        // Initialize cart count on load
+        updateCartCount();
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        const orderBtns = document.querySelectorAll('.order-btn');
+        orderBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const card = e.target.closest('.food-card');
+                const title = card.querySelector('.food-title').textContent;
+                const priceStr = card.querySelector('.food-price').textContent;
+                const price = parseFloat(priceStr.replace('$', ''));
+                const imageSrc = card.querySelector('img').src;
+
+                const item = {
+                    title: title,
+                    price: price,
+                    image: imageSrc,
+                    quantity: 1
+                };
+
+                let cart = JSON.parse(localStorage.getItem('savorCart')) || [];
+
+                // Check if item exists
+                const existingItem = cart.find(i => i.title === item.title);
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push(item);
+                }
+
+                localStorage.setItem('savorCart', JSON.stringify(cart));
+                updateCartCount();
+                showToast(`Added ${title} to order`);
+
+                // Animation effect on button
+                btn.textContent = "Added!";
+                btn.style.background = "#22c55e";
+                setTimeout(() => {
+                    btn.textContent = "Order";
+                    btn.style.background = ""; // Reset to CSS default
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+
+</html>
