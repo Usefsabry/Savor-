@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Move Auth buttons inside Nav Menu for Mobile to ensure visibility and reliable layout
     const navMenu = document.querySelector('.nav-menu');
     const navAuth = document.querySelector('.nav-auth');
-    
+
     // Check if we haven't already injected them
     if (navMenu && navAuth && !document.querySelector('.mobile-auth-container')) {
         const mobileAuthDiv = document.createElement('div');
@@ -25,6 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Navbar Scroll Effect
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
+        // Disable scroll effect on Order Page if requested
+        if (document.body.classList.contains('order-page')) {
+            return;
+        }
+
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
@@ -53,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         navMenu.classList.toggle('active');
         // navAuth.classList.toggle('active'); // Removed: Auth is now Inside menu
         mobileMenuBtn.classList.toggle('active');
-        
+
         if (navMenu.classList.contains('active')) {
             document.body.style.overflow = 'hidden';
         } else {
@@ -66,12 +71,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (heroSection) {
         const heroImages = [
             'images/background2.jpg',
-            'images/steak.jpg', 
+            'images/steak.jpg',
             'images/pizza.jpg'
         ];
-        
+
         let currentImageIndex = 0;
-        
+
         // Preload images
         heroImages.forEach(src => {
             const img = new Image();
@@ -85,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
             heroSection.style.setProperty('--hero-bg', `url('${nextImage}')`);
         }, 5000); // Change every 5 seconds
     }
-    
+
     // Smooth Scrolling for Anchors
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -103,4 +108,24 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    // Cart Logic for Home Page
+    function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem('savorCart')) || [];
+        const count = cart.reduce((total, item) => total + item.quantity, 0);
+        const cartFloat = document.getElementById('cartFloat');
+        const cartCount = document.getElementById('cartCount');
+
+        if (cartCount) cartCount.textContent = count;
+
+        if (cartFloat) {
+            if (count > 0) {
+                cartFloat.classList.add('visible');
+            } else {
+                cartFloat.classList.remove('visible');
+            }
+        }
+    }
+
+    // Initialize cart count on load
+    updateCartCount();
 });

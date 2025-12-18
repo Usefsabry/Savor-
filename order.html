@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Savoré - Checkout</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="signup_style.css"> <!-- Base styles -->
     <link rel="stylesheet" href="order_style.css">
 </head>
 
-<body>
+<body class="order-page">
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
@@ -119,96 +121,7 @@
             </div>
         </div>
     </footer>
-    <script src="script.js"></script>
-    <script>
-        // Use localstorage shared with menu.html
-        let cart = JSON.parse(localStorage.getItem('savorCart')) || [];
-        const cartItemsContainer = document.getElementById('cartItems');
-        const grandTotalEl = document.getElementById('grandTotal');
-        const itemCountEl = document.getElementById('itemCount');
-
-        function renderCart() {
-            cartItemsContainer.innerHTML = '';
-            let total = 0;
-            let count = 0;
-
-            if (cart.length === 0) {
-                cartItemsContainer.innerHTML = '<div class="empty-cart">Your plate is empty. Go add some delicious food!</div>';
-            } else {
-                cart.forEach((item, index) => {
-                    const itemTotal = item.price * item.quantity;
-                    total += itemTotal;
-                    count += item.quantity;
-
-                    const el = document.createElement('div');
-                    el.className = 'cart-item';
-                    el.style.animationDelay = `${index * 0.1}s`;
-                    el.innerHTML = `
-                        <img src="${item.image}" alt="${item.title}">
-                        <div class="item-details">
-                            <h3>${item.title}</h3>
-                            <div class="price">$${item.price.toFixed(2)}</div>
-                        </div>
-                        <div class="item-controls">
-                            <button class="qty-btn" onclick="updateQty(${index}, -1)">-</button>
-                            <span>${item.quantity}</span>
-                            <button class="qty-btn" onclick="updateQty(${index}, 1)">+</button>
-                        </div>
-                        <button class="remove-btn" onclick="removeItem(${index})">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
-                        </button>
-                    `;
-                    cartItemsContainer.appendChild(el);
-                });
-            }
-
-            grandTotalEl.textContent = '$' + total.toFixed(2);
-            itemCountEl.textContent = count + (count === 1 ? ' item' : ' items');
-        }
-
-        window.updateQty = (index, change) => {
-            if (cart[index].quantity + change > 0) {
-                cart[index].quantity += change;
-            } else if (change === -1) {
-                // If reducing to 0, ask to confirm removal
-                if (confirm("Remove this item?")) {
-                    cart.splice(index, 1);
-                } else {
-                    return;
-                }
-            }
-            saveCart();
-        };
-
-        window.removeItem = (index) => {
-            cart.splice(index, 1);
-            saveCart();
-        };
-
-        function saveCart() {
-            localStorage.setItem('savorCart', JSON.stringify(cart));
-            renderCart();
-        }
-
-        // Checkout 
-        document.getElementById('checkoutForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            if (cart.length === 0) {
-                alert("Your cart is empty!");
-                return;
-            }
-            // Mock submission
-            if (confirm("Place order for " + grandTotalEl.textContent + "?")) {
-                localStorage.removeItem('savorCart');
-                cart = [];
-                renderCart();
-                alert("Order Placed Successfully! Bon Appétit!");
-                window.location.href = 'menu.html';
-            }
-        });
-
-        renderCart();
-    </script>
+    <script src="order_script.js"></script>
 </body>
 
 </html>

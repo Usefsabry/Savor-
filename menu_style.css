@@ -305,52 +305,7 @@ body {
 }
 
 
-/* Floating Cart Button */
-.cart-float {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: var(--primary-color);
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 10px 25px rgba(255, 122, 24, 0.4);
-    cursor: pointer;
-    z-index: 1000;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    transform: scale(0);
-    /* Hidden primarily */
-    text-decoration: none;
-}
-
-.cart-float.visible {
-    transform: scale(1);
-}
-
-.cart-float:hover {
-    transform: scale(1.1);
-}
-
-.cart-count {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background: white;
-    color: var(--primary-color);
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    font-size: 12px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid var(--primary-color);
-}
+/* Floating Cart Button Styles moved to style.css */
 
 /* Toast Notification */
 .toast {

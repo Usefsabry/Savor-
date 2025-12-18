@@ -8,11 +8,9 @@ body.order-page .navbar,
 
 /* Specific override for Order page background if needed, though usually handled by scroll logic. 
    User requested "black background" which implies opaque. */
-body.order-page .navbar {
-    background: #000 !important;
-    backdrop-filter: none;
-    /* remove blur if solid black */
-}
+/* Specific override for Order page background if needed, though usually handled by scroll logic. 
+   User requested "black background" which implies opaque. */
+/* REMOVED override to match Menu Page behavior per latest request */
 
 :root {
     --primary-color: #ff7a18;
@@ -251,6 +249,21 @@ body {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 10px rgba(255, 122, 24, 0.2);
+}
+
+/* Enhanced Visuals for Payment Box */
+.glass-form h2 {
+    text-align: center;
+    color: var(--primary-color);
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 1px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.4);
 }
 
 .total-row {
@@ -322,4 +335,38 @@ body {
     .checkout-layout {
         grid-template-columns: 1fr;
     }
+}
+
+/* Force Navbar Height/Logo Size on Order/Menu Pages to match Home Page Initial State */
+.order-page .logo img,
+.menu-page .logo img {
+    height: 60px !important;
+    /* Force Tall */
+}
+.nav-container a{
+    margin-bottom: 0;
+}
+
+.order-page .navbar,
+.menu-page .navbar {
+    padding: 15px 0 !important;
+    /* Force Tall Padding */
+}
+
+/* Ensure Mobile Menu Toggle is Visible/Clickable */
+.menu-toggle {
+    z-index: 2000 !important;
+    /* Ensure it's above everything */
+}
+
+/* Form Validation Styles matching Login/Signup */
+.form-group input:invalid,
+.form-group textarea:invalid {
+    border-color: #ff4444;
+    box-shadow: 0 0 5px rgba(255, 68, 68, 0.2);
+}
+
+.form-group input:not(:placeholder-shown):valid,
+.form-group textarea:not(:placeholder-shown):valid {
+    border-color: #22c55e;
 }

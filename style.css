@@ -129,6 +129,13 @@ img {
     transition: var(--transition);
 }
 
+.menu-page .navbar,
+.order-page .navbar {
+    background: rgba(10, 10, 10, 0.8);
+    /* Dark background as requested */
+    backdrop-filter: blur(10px);
+}
+
 .navbar.scrolled {
     background: rgba(10, 10, 10, 0.95);
     padding: 10px 0;
@@ -145,7 +152,7 @@ img {
 }
 
 .logo img {
-    height: 90px;
+    height: 60px;
     /* Adjusted after crop */
     transition: var(--transition);
 }
@@ -689,6 +696,54 @@ img {
     transform: rotate(360deg);
 }
 
+/* Floating Cart Button */
+.cart-float {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    /* Position on left to avoid conflict with potential scroll top btn */
+    background: var(--primary-color);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(255, 122, 24, 0.4);
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: scale(0);
+    /* Hidden primarily */
+    text-decoration: none;
+}
+
+.cart-float.visible {
+    transform: scale(1);
+}
+
+.cart-float:hover {
+    transform: scale(1.1);
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: white;
+    color: var(--primary-color);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--primary-color);
+}
+
 /* Responsive Design */
 /* Responsive Design */
 @media (max-width: 900px) {
@@ -786,12 +841,33 @@ img {
         pointer-events: none;
     }
 
+
     .nav-auth.active {
         opacity: 1;
         right: 0;
         transform: none;
         left: auto;
         pointer-events: all;
+    }
+
+    /* Important: Ensure the injected AUTH container is displayed if using the JS injection method */
+    .mobile-auth-container {
+        display: flex !important;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+        width: 100%;
+        align-items: center;
+    }
+
+    .mobile-auth-container li {
+        width: 80%;
+        text-align: center;
+    }
+
+    .mobile-auth-container .nav-link {
+        display: block;
+        width: 100%;
     }
 
     /* Style buttons for visibility on dark glass */
