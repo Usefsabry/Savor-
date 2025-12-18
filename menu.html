@@ -5,10 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Savoré - Menu</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="menu_style.css">
 </head>
 
 <body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Gourmet Haven Logo">
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <!-- Centered Navigation Links -->
+            <ul class="nav-menu center-nav">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#about" class="nav-link">About Us</a></li>
+                <li><a href="menu.html" class="nav-link active">Menu</a></li>
+                <li><a href="index.html#gallery" class="nav-link">Gallery</a></li>
+            </ul>
+
+            <!-- Right Aligned Auth Buttons -->
+            <ul class="nav-auth">
+                <li><a href="restaurant_login.html" class="nav-link btn-login">Login</a></li>
+                <li><a href="restaurant_signup.html" class="nav-link btn-signup">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
     <!-- Background Slider (Reusing existing functionality) -->
     <div class="background-slider">
         <div class="slide active" style="background-image: url('images/background3.jpg')"></div>
@@ -212,6 +240,82 @@
     <div class="toast" id="toast">Item added to cart!</div>
 
     <!-- Optional: Simple Script for interactivity -->
+
+    <!-- Footer -->
+    <footer class="footer-custom">
+        <div class="container">
+            <div class="footer-top-grid">
+                <!-- Col 1: About Us -->
+                <div class="footer-widget">
+                    <h3 class="widget-title">About Savoré</h3>
+                    <p class="footer-text">
+                        Experience the art of dining at Savoré. We blend tradition with modern culinary techniques to
+                        bring you flavors that linger in your memory.
+                    </p>
+                    <p class="footer-text mt-2">
+                        Passionate about food, dedicated to service.
+                    </p>
+                </div>
+
+                <!-- Col 2: Why we are special -->
+                <div class="footer-widget">
+                    <h3 class="widget-title">Why Savoré?</h3>
+                    <ul class="footer-list arrow-list">
+                        <li><a href="#">Farm-to-table Ingredients</a></li>
+                        <li><a href="#">Award-Winning Chefs</a></li>
+                        <li><a href="#">Sustainable Practices</a></li>
+                        <li><a href="#">Exclusive Wine Selection</a></li>
+                        <li><a href="#">Cozy & Elegant Ambience</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Opening Hours -->
+                <div class="footer-widget">
+                    <h3 class="widget-title">Opening Hours</h3>
+                    <ul class="footer-list arrow-list">
+                        <li><span>Monday 10AM - 9PM</span></li>
+                        <li><span>Tuesday 10AM - 9PM</span></li>
+                        <li><span>Wednesday 10AM - 9PM</span></li>
+                        <li><span>Thursday 10AM - 10PM</span></li>
+                        <li><span>Friday 10AM - 10PM</span></li>
+                        <li><span>Weekends 10AM - 11PM</span></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact Details -->
+                <div class="footer-widget">
+                    <h3 class="widget-title">Contact Details</h3>
+                    <ul class="footer-list icon-list">
+                        <li><i class="fa-solid fa-location-dot"></i> <span>Manchester Road 123-78B, Silictown 7854MD,
+                                Great Country</span></li>
+                        <li><i class="fa-solid fa-phone"></i> <span>+46 123 456 789</span></li>
+                        <li><i class="fa-solid fa-envelope"></i> <span>hello@Savoré.com</span></li>
+                        <li><i class="fa-solid fa-globe"></i> <span>http://www.Savoré.com</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer-bottom-bar">
+            <div class="container footer-bottom-content">
+                <div class="footer-brand-centered">
+                    <img src="images/logo.png" alt="Bakery Logo">
+                    <h2>Gourmet Haven</h2>
+                </div>
+                <p class="copyright-text">Copyright &copy; 2025. All rights reserved.</p>
+                <div class="social-icons-round">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
     <script>
         // Simple background slider rotation (copied concept from signup)
         const slides = document.querySelectorAll('.slide');

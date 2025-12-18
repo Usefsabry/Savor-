@@ -5,11 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Savoré - Checkout</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="signup_style.css"> <!-- Base styles -->
     <link rel="stylesheet" href="order_style.css">
 </head>
 
 <body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Gourmet Haven Logo">
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <!-- Centered Navigation Links -->
+            <ul class="nav-menu center-nav">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#about" class="nav-link">About Us</a></li>
+                <li><a href="menu.html" class="nav-link">Menu</a></li>
+                <li><a href="index.html#gallery" class="nav-link">Gallery</a></li>
+            </ul>
+
+            <!-- Right Aligned Auth Buttons -->
+            <ul class="nav-auth">
+                <li><a href="restaurant_login.html" class="nav-link btn-login">Login</a></li>
+                <li><a href="restaurant_signup.html" class="nav-link btn-signup">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
     <!-- Reuse Background -->
     <div class="background-slider">
         <div class="slide active" style="background-image: url('images/background3.jpg')"></div>
@@ -70,6 +98,28 @@
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="footer-custom">
+
+
+        <!-- Bottom Bar -->
+        <div class="footer-bottom-bar">
+            <div class="container footer-bottom-content">
+                <div class="footer-brand-centered">
+                    <img src="images/logo.png" alt="Bakery Logo">
+                    <h2>Gourmet Haven</h2>
+                </div>
+                <p class="copyright-text">Copyright &copy; 2025. All rights reserved.</p>
+                <div class="social-icons-round">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
     <script>
         // Use localstorage shared with menu.html
         let cart = JSON.parse(localStorage.getItem('savorCart')) || [];

@@ -140,21 +140,23 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: nowrap;
+    /* Prevent wrapping of items */
 }
 
 .logo img {
-    height: 160px;
-    /* Even Bigger as requested */
+    height: 90px;
+    /* Adjusted after crop */
     transition: var(--transition);
 }
 
 .navbar.scrolled .logo img {
-    height: 100px;
+    height: 70px;
 }
 
 .nav-menu.center-nav {
     display: flex;
-    gap: 30px;
+    gap: 45px;
     align-items: center;
     margin: 0 auto;
     /* Center the links */
@@ -169,6 +171,8 @@ img {
     color: var(--white);
     position: relative;
     padding: 5px 0;
+    white-space: nowrap;
+    /* Prevent wrapping */
 }
 
 .nav-link:not(.btn-login):not(.btn-signup)::after {
@@ -201,6 +205,7 @@ img {
     font-size: 1rem;
     position: relative;
     text-decoration: none !important;
+    white-space: nowrap;
 }
 
 /* Ensure no underline on these */
@@ -331,6 +336,7 @@ img {
 .text-gradient {
     background: linear-gradient(45deg, var(--primary-color), #ff9e40);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -649,7 +655,7 @@ img {
 }
 
 .footer-brand-centered img {
-    height: 160px;
+    height: 100px;
     /* Footer Logo Bigger */
 }
 

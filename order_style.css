@@ -1,4 +1,19 @@
 /* Order Page Styles */
+
+/* Enforce Fixed, Black Navbar on Order Page */
+body.order-page .navbar,
+.navbar {
+    position: fixed !important;
+}
+
+/* Specific override for Order page background if needed, though usually handled by scroll logic. 
+   User requested "black background" which implies opaque. */
+body.order-page .navbar {
+    background: #000 !important;
+    backdrop-filter: none;
+    /* remove blur if solid black */
+}
+
 :root {
     --primary-color: #ff7a18;
 }
@@ -15,6 +30,21 @@ body {
     overflow-x: hidden;
     color: #fff;
     background: #0f0f0f;
+}
+
+/* Fix for Global Container Conflict */
+/* Resets the container styles inherited from signup_style.css to allow Navbar to work properly */
+.container {
+    min-height: auto;
+    padding: 0 20px;
+    max-width: 1200px;
+}
+
+/* Restore Navbar Flex Behavior overridden by signup_style.css */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* Background Slider (Same as menu) */
@@ -40,7 +70,7 @@ body {
 .order-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 250px 20px 40px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;

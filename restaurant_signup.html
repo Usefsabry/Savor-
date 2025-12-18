@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up - Restaurant</title>
     <link rel="stylesheet" href="signup_style.css">
 </head>
+
 <body>
     <div class="background-slider">
         <div class="slide active" style="background-image: url('images/background3.jpg')"></div>
@@ -17,11 +19,11 @@
         <div class="glass-form">
             <div class="logo">
                 <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M25 5L30 20H45L33 28L37 43L25 35L13 43L17 28L5 20H20L25 5Z" fill="currentColor"/>
+                    <path d="M25 5L30 20H45L33 28L37 43L25 35L13 43L17 28L5 20H20L25 5Z" fill="currentColor" />
                 </svg>
                 <h1>Savoré</h1>
             </div>
-            
+
             <div class="welcome-text">
                 <h2>Join Us Today</h2>
                 <p>Create your account and enjoy a unique experience</p>
@@ -30,61 +32,31 @@
             <form id="signupForm" novalidate>
                 <div class="input-group">
                     <label for="fullname">Full Name</label>
-                    <input 
-                        type="text" 
-                        id="fullname" 
-                        name="fullname" 
-                        placeholder="Enter your full name"
-                        required
-                    >
+                    <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
                     <span class="error-message"></span>
                 </div>
 
                 <div class="input-group">
                     <label for="email">Email Address</label>
-                    <input 
-                        type="text" 
-                        id="email" 
-                        name="email" 
-                        placeholder="example@email.com"
-                        required
-                    >
+                    <input type="text" id="email" name="email" placeholder="example@email.com" required>
                     <span class="error-message"></span>
                 </div>
 
                 <div class="input-group">
                     <label for="phone">Phone Number</label>
-                    <input 
-                        type="text" 
-                        id="phone" 
-                        name="phone" 
-                        placeholder="+20 1XX XXX XXXX"
-                        required
-                    >
+                    <input type="text" id="phone" name="phone" placeholder="+20 1XX XXX XXXX" required>
                     <span class="error-message"></span>
                 </div>
 
                 <div class="input-group">
                     <label for="password">Password</label>
-                    <input 
-                        type="password" 
-                        id="password" 
-                        name="password" 
-                        placeholder="••••••••"
-                        required
-                    >
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
                     <span class="error-message"></span>
                 </div>
 
                 <div class="input-group">
                     <label for="confirmPassword">Confirm Password</label>
-                    <input 
-                        type="password" 
-                        id="confirmPassword" 
-                        name="confirmPassword" 
-                        placeholder="••••••••"
-                        required
-                    >
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="••••••••" required>
                     <span class="error-message"></span>
                 </div>
 
@@ -107,4 +79,5 @@
 
     <script src="signup_script.js"></script>
 </body>
+
 </html>
